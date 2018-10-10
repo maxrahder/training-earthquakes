@@ -30,3 +30,10 @@
     transform: rotate(360deg);
   }
 }
+
+html,
+body,
+div.App,
+div#root {
+  height: 100%;
+}
