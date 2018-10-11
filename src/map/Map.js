@@ -6,16 +6,20 @@ import Earthquakes from "../service/Earthquakes";
 export default class Map extends Component {
   constructor(props) {
     super(props);
+    this.location = { latitude: 48.8583701, longitude: 2.2944813 };
+
     this.state = {
       earthquakes: []
     };
-    debugger;
     Earthquakes.get().then(this.drawMarkers.bind(this));
   }
-  pan(coordinate) {
+
+  // Get the map instance, optionally centered at the specified location.
+  pan(location) {
+    this.location = location || this.location;
     const ll = new window.google.maps.LatLng(
-      coordinate.latitude,
-      coordinate.longitude
+      location.latitude,
+      location.longitude
     );
 
     this._map =
@@ -30,6 +34,8 @@ export default class Map extends Component {
   }
 
   // @private
+  // This array holds the markers. This is needed when adding
+  // new markers are created, in order to destroy the old ones.
   get markers() {
     return this._markers || [];
   }
