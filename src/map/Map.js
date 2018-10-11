@@ -6,12 +6,13 @@ import Earthquakes from "../service/Earthquakes";
 export default class Map extends Component {
   constructor(props) {
     super(props);
+    console.log("Oh baby, I got created");
     this.location = { latitude: 48.8583701, longitude: 2.2944813 };
 
     this.state = {
       earthquakes: []
     };
-    Earthquakes.get().then(this.drawMarkers.bind(this));
+    // Earthquakes.get().then(this.drawMarkers.bind(this));
   }
 
   // Get the map instance, optionally centered at the specified location.

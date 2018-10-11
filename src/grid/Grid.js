@@ -14,10 +14,14 @@ export default class Grid extends Component {
     this.state = {
       earthquakes: []
     };
-    Earthquakes.get().then(earthquakes => {
-      this.setState({ earthquakes, pageSize: earthquakes.length });
-      console.log(earthquakes.length);
-    });
+    // Earthquakes.get().then(earthquakes => {
+    //     this.setState({ earthquakes, pageSize: earthquakes.length });
+    //   console.log(earthquakes.length);
+    // });
+  }
+
+  update(earthquakes) {
+    this.setState({ earthquakes });
   }
 
   render() {
